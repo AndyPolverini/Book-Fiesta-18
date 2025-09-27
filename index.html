@@ -1,0 +1,213 @@
+<!doctype html>
+<html>
+<head>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="../../turn.min.js"></script>
+
+<style type="text/css">
+body {
+    background: #ccc;
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('img/(64).jpg') center center no-repeat;
+    background-size: cover;
+    filter: blur(8px) brightness(1.2);
+    z-index: 0;
+}
+#magazine {
+    position: relative;
+    z-index: 1;
+    width: 90vw;
+    max-width: 900px;
+    aspect-ratio: 16/9;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#magazine > div {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    box-shadow: 0 0 32px rgba(0,0,0,0.2);
+    border-radius: 16px;
+    overflow: hidden;
+}
+#magazine > div::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('img/(64).jpg') center center no-repeat;
+    background-size: cover;
+    filter: blur(12px) brightness(1.1);
+    z-index: 0;
+    border-radius: 16px;
+}
+#magazine img {
+    position: relative;
+    z-index: 1;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 600px) {
+    #magazine {
+        width: 98vw;
+        max-width: 98vw;
+        aspect-ratio: 16/9;
+        border-radius: 8px;
+    }
+    #magazine > div {
+        border-radius: 8px;
+    }
+    #magazine img {
+        border-radius: 4px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div id="magazine">
+    <div><img src="img/(1).jpg" alt="Página 1"></div>
+    <div><img src="img/(2).jpg" alt="Página 2"></div>
+    <div><img src="img/(3).jpg" alt="Página 3"></div>
+    <div><img src="img/(4).jpg" alt="Página 4"></div>
+    <div><img src="img/(5).jpg" alt="Página 5"></div>
+    <div><img src="img/(6).jpg" alt="Página 6"></div>
+    <div><img src="img/(7).jpg" alt="Página 7"></div>
+    <div><img src="img/(8).jpg" alt="Página 8"></div>
+    <div><img src="img/(9).jpg" alt="Página 9"></div>
+    <div><img src="img/(10).jpg" alt="Página 10"></div>
+    <div><img src="img/(11).jpg" alt="Página 11"></div>
+    <div><img src="img/(12).jpg" alt="Página 12"></div>
+    <div><img src="img/(13).jpg" alt="Página 13"></div>
+    <div><img src="img/(14).jpg" alt="Página 14"></div>
+    <div><img src="img/(15).jpg" alt="Página 15"></div>
+    <div><img src="img/(16).jpg" alt="Página 16"></div>
+    <div><img src="img/(17).jpg" alt="Página 17"></div>
+    <div><img src="img/(18).jpg" alt="Página 18"></div>
+    <div><img src="img/(19).jpg" alt="Página 19"></div>
+    <div><img src="img/(20).jpg" alt="Página 20"></div>
+    <div><img src="img/(21).jpg" alt="Página 21"></div>
+    <div><img src="img/(22).jpg" alt="Página 22"></div>
+    <div><img src="img/(23).jpg" alt="Página 23"></div>
+    <div><img src="img/(24).jpg" alt="Página 24"></div>
+    <div><img src="img/(25).jpg" alt="Página 25"></div>
+    <div><img src="img/(26).jpg" alt="Página 26"></div>
+    <div><img src="img/(27).jpg" alt="Página 27"></div>
+    <div><img src="img/(28).jpg" alt="Página 28"></div>
+    <div><img src="img/(29).jpg" alt="Página 29"></div>
+    <div><img src="img/(30).jpg" alt="Página 30"></div>
+    <div><img src="img/(31).jpg" alt="Página 31"></div>
+    <div><img src="img/(32).jpg" alt="Página 32"></div>
+    <div><img src="img/(33).jpg" alt="Página 33"></div>
+    <div><img src="img/(34).jpg" alt="Página 34"></div>
+    <div><img src="img/(35).jpg" alt="Página 35"></div>
+    <div><img src="img/(36).jpg" alt="Página 36"></div>
+    <div><img src="img/(37).jpg" alt="Página 37"></div>
+    <div><img src="img/(38).jpg" alt="Página 38"></div>
+    <div><img src="img/(39).jpg" alt="Página 39"></div>
+    <div><img src="img/(40).jpg" alt="Página 40"></div>
+    <div><img src="img/(41).jpg" alt="Página 41"></div>
+    <div><img src="img/(42).jpg" alt="Página 42"></div>
+    <div><img src="img/(43).jpg" alt="Página 43"></div>
+    <div><img src="img/(44).jpg" alt="Página 44"></div>
+    <div><img src="img/(45).jpg" alt="Página 45"></div>
+    <div><img src="img/(46).jpg" alt="Página 46"></div>
+    <div><img src="img/(47).jpg" alt="Página 47"></div>
+    <div><img src="img/(48).jpg" alt="Página 48"></div>
+    <div><img src="img/(49).jpg" alt="Página 49"></div>
+    <div><img src="img/(50).jpg" alt="Página 50"></div>
+    <div><img src="img/(51).jpg" alt="Página 51"></div>
+    <div><img src="img/(52).jpg" alt="Página 52"></div>
+    <div><img src="img/(53).jpg" alt="Página 53"></div>
+    <div><img src="img/(54).jpg" alt="Página 54"></div>
+    <div><img src="img/(55).jpg" alt="Página 55"></div>
+    <div><img src="img/(56).jpg" alt="Página 56"></div>
+    <div><img src="img/(57).jpg" alt="Página 57"></div>	
+    <div><img src="img/(58).jpg" alt="Página 58"></div>
+    <div><img src="img/(59).jpg" alt="Página 59"></div>
+    <div><img src="img/(60).jpg" alt="Página 60"></div>
+    <div><img src="img/(61).jpg" alt="Página 61"></div>
+    <div><img src="img/(62).jpg" alt="Página 62"></div>
+    <div><img src="img/(63).jpg" alt="Página 63"></div>
+    <div><img src="img/(91).jpg" alt="Página 64"></div>
+    <div><img src="img/(65).jpg" alt="Página 65"></div>
+    <div><img src="img/(66).jpg" alt="Página 66"></div>
+    <div><img src="img/(67).jpg" alt="Página 67"></div>
+    <div><img src="img/(68).jpg" alt="Página 68"></div>
+    <div><img src="img/(69).jpg" alt="Página 69"></div>
+    <div><img src="img/(70).jpg" alt="Página 70"></div>
+    <div><img src="img/(71).jpg" alt="Página 71"></div>
+    <div><img src="img/(72).jpg" alt="Página 72"></div>
+    <div><img src="img/(73).jpg" alt="Página 73"></div>
+    <div><img src="img/(74).jpg" alt="Página 74"></div>
+    <div><img src="img/(75).jpg" alt="Página 75"></div>
+    <div><img src="img/(76).jpg" alt="Página 76"></div>
+    <div><img src="img/(77).jpg" alt="Página 77"></div>
+    <div><img src="img/(78).jpg" alt="Página 78"></div>
+    <div><img src="img/(79).jpg" alt="Página 79"></div>
+    <div><img src="img/(80).jpg" alt="Página 80"></div>
+    <div><img src="img/(81).jpg" alt="Página 81"></div>
+    <div><img src="img/(82).jpg" alt="Página 82"></div>
+    <div><img src="img/(83).jpg" alt="Página 83"></div>
+    <div><img src="img/(84).jpg" alt="Página 84"></div>
+    <div><img src="img/(85).jpg" alt="Página 85"></div>
+    <div><img src="img/(86).jpg" alt="Página 86"></div>
+    <div><img src="img/(87).jpg" alt="Página 87"></div>
+    <div><img src="img/(88).jpg" alt="Página 88"></div>
+    <div><img src="img/(89).jpg" alt="Página 89"></div>
+    <div><img src="img/(90).jpg" alt="Página 90"></div>
+    <div><img src="img/(64).jpg" alt="Página 91"></div>
+</div>
+
+<script type="text/javascript">
+    $(window).ready(function() {
+        $('#magazine').turn({
+            display: 'single', // Cambia a página única vertical
+            acceleration: true,
+            gradients: !$.isTouch,
+            elevation:50,
+            when: {
+                turned: function(e, page) {
+                    /*console.log('Current view: ', $(this).turn('view'));*/
+                }
+            }
+        });
+    });
+    
+    $(window).bind('keydown', function(e){
+        if (e.keyCode==37)
+            $('#magazine').turn('previous');
+        else if (e.keyCode==39)
+            $('#magazine').turn('next');
+    });
+</script>
+
+</body>
+</html>
