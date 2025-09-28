@@ -199,6 +199,24 @@ body::before {
                 }
             }
         });
+
+        // Swipe en dispositivos touch
+        let startX = 0;
+        let endX = 0;
+        $('#magazine').on('touchstart', function(e) {
+            startX = e.originalEvent.touches[0].clientX;
+        });
+        $('#magazine').on('touchend', function(e) {
+            endX = e.originalEvent.changedTouches[0].clientX;
+            let diff = endX - startX;
+            if (Math.abs(diff) > 50) { // Sensibilidad del swipe
+                if (diff < 0) {
+                    $('#magazine').turn('next'); // Swipe izquierda
+                } else {
+                    $('#magazine').turn('previous'); // Swipe derecha
+                }
+            }
+        });
     });
     
     $(window).bind('keydown', function(e){
