@@ -189,18 +189,20 @@ body::before {
 <script type="text/javascript">
     $(window).ready(function() {
         $('#magazine').turn({
-            display: 'single', // Cambia a página única vertical
+            display: 'single',
             acceleration: true,
-            gradients: !$.isTouch,
-            elevation:50,
+            gradients: true,
+            elevation: 50,
+            autoCenter: true,
+            duration: 300, // Duración más corta para la animación
             when: {
                 turned: function(e, page) {
-                    /*console.log('Current view: ', $(this).turn('view'));*/
+                    // Puedes agregar efectos extra aquí si lo deseas
                 }
             }
         });
 
-        // Swipe en dispositivos touch
+        // Swipe en dispositivos touch para efecto hoja
         let startX = 0;
         let endX = 0;
         $('#magazine').on('touchstart', function(e) {
@@ -209,16 +211,16 @@ body::before {
         $('#magazine').on('touchend', function(e) {
             endX = e.originalEvent.changedTouches[0].clientX;
             let diff = endX - startX;
-            if (Math.abs(diff) > 50) { // Sensibilidad del swipe
+            if (Math.abs(diff) > 50) {
                 if (diff < 0) {
-                    $('#magazine').turn('next'); // Swipe izquierda
+                    $('#magazine').turn('next');
                 } else {
-                    $('#magazine').turn('previous'); // Swipe derecha
+                    $('#magazine').turn('previous');
                 }
             }
         });
     });
-    
+
     $(window).bind('keydown', function(e){
         if (e.keyCode==37)
             $('#magazine').turn('previous');
