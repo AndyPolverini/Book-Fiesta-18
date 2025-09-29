@@ -214,7 +214,7 @@ body::before {
         });
 
         // Botón de descarga funcional para todas las fotos
-        $(document).on('click', '.download-btn', function(e){
+        $(document).on('click touchstart', '.download-btn', function(e){
             e.stopPropagation();
             var $img = $(this).siblings('img');
             var imgSrc = $img.attr('src');
