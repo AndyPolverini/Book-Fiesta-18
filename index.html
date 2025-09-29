@@ -61,6 +61,7 @@ body::before {
     filter: blur(12px) brightness(1.1);
     z-index: 0;
     border-radius: 16px;
+    pointer-events: none;
 }
 #magazine img {
     position: relative;
@@ -141,7 +142,33 @@ body::before {
 #magazine > div {
     position: relative;
 }
-    </style>
+
+/* Botón externo solo visible en móvil */
+.download-btn-externo {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 100;
+    background: rgba(0,0,0,0.18);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 26px;
+    cursor: pointer;
+    display: none; /* Oculto por defecto, se muestra en móvil por JS */
+    align-items: center;
+    justify-content: center;
+    opacity: 0.8;
+    transition: opacity 0.2s, background 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.download-btn-externo:hover {
+    opacity: 1;
+    background: rgba(0,0,0,0.45);
+}
+</style>
 </head>
 <body>
 
@@ -151,6 +178,9 @@ body::before {
     <button class="nav-btn" id="prev-btn" title="Anterior">&#8592;</button>
     <button class="nav-btn" id="next-btn" title="Siguiente">&#8594;</button>
 </div>
+
+<!-- Botón de descarga externo solo visible en móvil -->
+<button id="download-externo" class="download-btn-externo" title="Descargar">&#128190;</button>
 
 <script type="text/javascript">
     // Array con los nombres de las imágenes
@@ -224,6 +254,42 @@ body::before {
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
+        });
+
+        // Detecta si es móvil
+        function esMovil() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        // Muestra/oculta el botón de descarga según el dispositivo
+        function toggleBotonDescarga() {
+            if (esMovil()) {
+                $('.download-btn').hide();
+                $('#download-externo').show();
+            } else {
+                $('.download-btn').show();
+                $('#download-externo').hide();
+            }
+        }
+
+        // Ejecuta al cargar y al cambiar de tamaño
+        $(window).on('resize', toggleBotonDescarga);
+        $(document).ready(toggleBotonDescarga);
+
+        // Función para descargar la foto actual desde el botón externo
+        $('#download-externo').on('click', function(e){
+            e.stopPropagation();
+            // Busca la imagen visible
+            var $img = $('#magazine > div:visible img');
+            var imgSrc = $img.attr('src');
+            if (imgSrc) {
+                var link = document.createElement('a');
+                link.href = imgSrc;
+                link.download = imgSrc.split('/').pop();
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
         });
     });
 
